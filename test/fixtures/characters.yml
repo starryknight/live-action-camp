@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  character_name: MyString
+  status: MyString
+  weapon: MyString
+  avatar: MyString
+  user: one
+  tribe: one
+
+two:
+  character_name: MyString
+  status: MyString
+  weapon: MyString
+  avatar: MyString
+  user: two
+  tribe: two

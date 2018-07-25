@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tribe_name: MyString
+  body_paint: MyString
+  crest: MyString
+  village: MyString
+
+two:
+  tribe_name: MyString
+  body_paint: MyString
+  crest: MyString
+  village: MyString
