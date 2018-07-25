@@ -14,3 +14,4 @@ class Api::CharactersController < ApplicationController
   def delete
   end
 end
+
