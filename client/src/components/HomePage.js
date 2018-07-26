@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Button, Select, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+
 
 class HomePage extends Component {
     state = {
@@ -50,14 +51,13 @@ class HomePage extends Component {
         </Header>
         <Form size='large'>
           <Segment stacked>
-            <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
-            <Form.Input
-              fluid
-              icon='lock'
-              iconPosition='left'
-              placeholder='Password'
-              type='password'
-            />
+          
+            
+          <Select placeholder='Select your country' 
+          options={`${userName}</div>`} 
+          />
+
+          
 
             <Button color='teal' fluid size='large'>
               Login
