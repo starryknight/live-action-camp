@@ -44,8 +44,8 @@ In my second version I would love to be able to make my activities page create, 
 * React-Bootstrap
 * Styled-Components
 ### Back-End
-* Express
-* MongoDB
+* Ruby on Rails
+* PostgresQL
 * Postman 
 * Node.js
 ## References
