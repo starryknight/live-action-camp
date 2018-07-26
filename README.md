@@ -1,24 +1,53 @@
-# README
+# Live-Action-Camp
+This is a website dedicated to Live Action Role Players who would like a place to go and exercise their passion.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## The Process
+The application was a fun build. With this application there were alot of different technologies that needed to be used to achieve the target product. There was alot of co-operation with fellow developers and reference to react documentations was key to completion. On the last day I had challenges with value from options being inherited by a select tag value which affected the application's ability to use select tags effectively. 
 
-Things you may want to cover:
+## Overview
+A larp enthusiast signs into a page and is immediately able to see the roles that they sign up for during a camp
+## Snapshot
+![image](https://user-images.githubusercontent.com/35582310/42146632-f847150c-7d96-11e8-8ab2-6f95bdef958d.png)
 
-* Ruby version
+## Heroku Site Link
+The live website for the project is available via the following link:-
+```
+https://protected-meadow-64552.herokuapp.com/
 
-* System dependencies
+```
+## wireframe
+The wireframe for the project is available via the following link:-
+```
+https://www.figma.com/file/LcCHm76bTNOEWyycO4CYv92o/Untitled?node-id=3%3A9
+```
+## ERD
+The ERD for the project is available via the following link:-
+```
+https://www.draw.io/#G1tfIS0KrKEpg40NEIZ_z4ubTYoIAzKxMB
 
-* Configuration
+```
+![image](https://user-images.githubusercontent.com/35582310/42388408-6a16eb06-8113-11e8-9474-1c2f74768980.png)
 
-* Database creation
 
-* Database initialization
+## Trello
 
-* How to run the test suite
+Please find the user stories via the following link:-
+```
+https://trello.com/b/gYr0ruvq/live-action-camp
+```
+## Version 2
+In my second version I would love to be able to make my activities page create, read update and delete. An actual log in would be an important addition. 
 
-* Services (job queues, cache servers, search engines, etc.)
+## Technologies
+### Front-End
+* React
+* React-Bootstrap
+* Styled-Components
+### Back-End
+* Express
+* MongoDB
+* Postman 
+* Node.js
+## References
 
-* Deployment instructions
-
-* ...
+https://dashboard.heroku.com/

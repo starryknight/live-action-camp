@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'
 import { Button, Select, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 
 
 class HomePage extends Component {
     state = {
-        users:[]
+        users:[],
+        redirectToUserPage: false,
+        redirectPathname: ""
     }
 
     componentDidMount(){
@@ -26,7 +29,24 @@ class HomePage extends Component {
         }
       }
 
+      handleRedirect = () => {
+        console.log("HIT")
+            // redirectPathname: `/users/${userId}`
+        const selectUser = Document.getElementById("selectUser");
+        const userId = selectUser.options[selectUser.selectedIndex].value;
+        console.log(userId)
+        this.setState({
+            redirectToUserPage: true,
+            redirectPathname: `/users/${userId}`
+        })
+      }
+
     render() {
+        if (this.state.redirectToUserPage) {
+            return (
+                <Redirect to={this.state.redirectPathname} />
+            );
+        }
         const userName = this.state.users.map((user) => {
             return(
                 <h1>{user.username}</h1>
@@ -34,34 +54,35 @@ class HomePage extends Component {
         })
         return (
             <div>
-                <h1>{userName}</h1>
-                <div className='login-form'>
+    {/* //             <h1>{userName}</h1>
+    //             <div className='login-form'>
     
-    <style>{`
-      body > div,
-      body > div > div,
-      body > div > div > div.login-form {
-        height: 100%;
-      }
-    `}</style>
+    // <style>{`
+    //   body > div,
+    //   body > div > div,
+    //   body > div > div > div.login-form {
+    //     height: 100%;
+    //   }
+    // `}</style> */}
+    
     <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='teal' textAlign='center'>
-          <Image src='/logo.png' /> Log-in to your account
+           Live Action Camp
         </Header>
         <Form size='large'>
           <Segment stacked>
           
-            
-          <Select placeholder='Select your country' 
-          options={`${userName}</div>`} 
-          />
+          <select name="" id="selectUser" onChange={this.handleRedirect}>
+          {
+              this.state.users.map((currentUser, index) => {
+                  return (
+                      <option key={index} value={currentUser.id}>{currentUser.username}</option>
+                  );
+              })
+          }
+          </select>
 
-          
-
-            <Button color='teal' fluid size='large'>
-              Login
-            </Button>
           </Segment>
         </Form>
         <Message>
@@ -71,7 +92,7 @@ class HomePage extends Component {
     </Grid>
   </div>
 
-            </div>
+            // </div>
             
         );
     }
