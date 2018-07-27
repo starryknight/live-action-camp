@@ -1,44 +1,27 @@
 import React, { Component } from 'react';
-// import { Button, Modal, Select, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
-import { Button, FormGroup, Form, Col, Checkbox, Radio, FieldGroup, FormControl, HelpBlock, ControlLabel } from 'react-bootstrap';
+import { Button, Modal, Checkbox, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 
 class NewUserPage extends Component {
     render() {
         return (
-            <div>
-                <Form horizontal>
-  <FormGroup controlId="formHorizontalEmail">
-    <Col componentClass={ControlLabel} sm={2}>
-      Email
-    </Col>
-    <Col sm={10}>
-      <FormControl type="email" placeholder="Email" />
-    </Col>
-  </FormGroup>
-
-  <FormGroup controlId="formHorizontalPassword">
-    <Col componentClass={ControlLabel} sm={2}>
-      Password
-    </Col>
-    <Col sm={10}>
-      <FormControl type="password" placeholder="Password" />
-    </Col>
-  </FormGroup>
-
-  <FormGroup>
-    <Col smOffset={2} sm={10}>
-      <Checkbox>Remember me</Checkbox>
-    </Col>
-  </FormGroup>
-
-  <FormGroup>
-    <Col smOffset={2} sm={10}>
-      <Button type="submit">Sign in</Button>
-    </Col>
-  </FormGroup>
-</Form>;
- 
-            </div>
+            
+                <Modal.Content>
+                <Form>
+    <Form.Field>
+      <label>First Name</label>
+      <input placeholder='First Name' />
+    </Form.Field>
+    <Form.Field>
+      <label>Last Name</label>
+      <input placeholder='Last Name' />
+    </Form.Field>
+    <Form.Field>
+      <Checkbox label='I agree to the Terms and Conditions' />
+    </Form.Field>
+    <Button type='submit'>Submit</Button>
+  </Form>
+    </Modal.Content>
+            
         );
     }
 }
