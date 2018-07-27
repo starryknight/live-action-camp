@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import axios from "axios";
 import {
   Button,
@@ -13,32 +13,38 @@ import {
 } from "semantic-ui-react";
 
 class IndividualUserPage extends Component {
-    state = {
-        user: {},
-      };
-    
-      componentDidMount() {
-        this.getIndividualUser();
-      }
-    
-      getIndividualUser = async () => {
-        try {
-          const res = await axios.get("/api/users/:id");
-          await this.setState({ user: res.data });
-          return res.data;
-        } catch (err) {
-          console.log(err);
-          await this.setState({ error: err.message });
-          return err.message;
-        }
-      };
-    render() {
-        return (
-            <div>
-            <h1>{this.state.user.username}</h1>
-            </div>
-        );
+  state = {
+    user: {}
+  };
+
+  componentDidMount() {
+    this.getIndividualUser();
+  }
+
+  getIndividualUser = async () => {
+    const userId = this.props.match.params.user_id
+
+    try {
+      const res = await axios.get(`/api/users/${userId}`);
+      console.log(res.data)
+      await this.setState({ user: res.data.user });
+      // return res.data;
+    } catch (err) {
+      console.error(err);
+      // await this.setState({ error: err.message });
+      // return err.message;
     }
+  };
+  render() {
+    return (
+      <div>
+        <h1>{this.state.user.username}</h1>
+        <h1>{this.state.user.username}</h1>
+        <h1>{this.state.user.username}</h1>
+        <h1>{this.state.user.username}</h1>
+      </div>
+    );
+  }
 }
 
 export default IndividualUserPage;
