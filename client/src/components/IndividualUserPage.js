@@ -41,7 +41,7 @@ class IndividualUserPage extends Component {
       <div>
         <h1>Welcome to your Page {this.state.user.username}. Your options are as follows</h1>
         <h1>{this.state.user.username}</h1>
-        <CharactersPage />
+        <CharactersPage params={this.props.params}{... this.props} />
         
       </div>
     );
