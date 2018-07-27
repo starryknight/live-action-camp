@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
-import { Button, Select, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Button, Modal, Select, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+
+import NewUserPage from './NewUserPage';
 
 
 class HomePage extends Component {
@@ -82,11 +84,15 @@ class HomePage extends Component {
               })
           }
           </select>
+          
 
           </Segment>
         </Form>
         <Message>
-          New to us? <a href='#'>Sign Up</a>
+          New to us? <Modal trigger={<Button>Show Modal</Button>}>
+    <Modal.Header>Select a Photo</Modal.Header>
+    <NewUserPage />
+  </Modal>
         </Message>
       </Grid.Column>
     </Grid>
