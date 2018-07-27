@@ -25,7 +25,6 @@ The ERD for the project is available via the following link:-
 ```
 ![live-action-wireframe](https://user-images.githubusercontent.com/35582310/43296335-c1c14332-9118-11e8-9814-30d943a875e7.jpg)
 ```
-![image](https://user-images.githubusercontent.com/35582310/42388408-6a16eb06-8113-11e8-9474-1c2f74768980.png)
 
 
 ## Trello
