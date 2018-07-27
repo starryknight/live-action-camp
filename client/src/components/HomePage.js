@@ -1,9 +1,11 @@
-import React, { Component, Link } from "react";
+import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 import axios from "axios";
 import {
   Button,
   Modal,
   Form,
+  Dropdown,
   Grid,
   Header,
   Message,
@@ -34,7 +36,9 @@ class HomePage extends Component {
 
   render() {
     const userName = this.state.users.map(user => {
-      return <h1>{user.username}</h1>;
+        const userId = `/users/${user.id}`
+        
+      return (<li><Link to={userId}>{user.username}</Link></li>)
     });
     return (
       <div>
@@ -51,8 +55,10 @@ class HomePage extends Component {
               <Form size="large">
                 <Segment stacked>
                  
-                  <li><Link to={`/users/${userName}`}>{userName}</Link></li>
-                  
+                  {/* <li>{userName}</li> */}
+                  <Dropdown placeholder='Select Friend' fluid selection options={userName} />
+
+  
                 </Segment>
               </Form>
               <Message>
