@@ -35,7 +35,7 @@ class IndividualUserPage extends Component {
     render() {
         return (
             <div>
-            <h1>this is the individual user page</h1>
+            <h1>{this.state.user.username}</h1>
             </div>
         );
     }
