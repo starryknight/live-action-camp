@@ -24,7 +24,7 @@ https://www.figma.com/file/LcCHm76bTNOEWyycO4CYv92o/Untitled?node-id=3%3A9
 The ERD for the project is available via the following link:-
 ```
 ![live-action-wireframe](https://user-images.githubusercontent.com/35582310/43296335-c1c14332-9118-11e8-9814-30d943a875e7.jpg)
-```
+
 
 
 ## Trello
