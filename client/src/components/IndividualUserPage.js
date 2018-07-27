@@ -11,6 +11,7 @@ import {
   Message,
   Segment
 } from "semantic-ui-react";
+import CharactersPage from "./CharactersPage";
 
 class IndividualUserPage extends Component {
   state = {
@@ -26,7 +27,7 @@ class IndividualUserPage extends Component {
 
     try {
       const res = await axios.get(`/api/users/${userId}`);
-      console.log(res.data)
+      // console.log(res.data)
       await this.setState({ user: res.data.user });
       // return res.data;
     } catch (err) {
@@ -38,10 +39,10 @@ class IndividualUserPage extends Component {
   render() {
     return (
       <div>
+        <h1>Welcome to your Page {this.state.user.username}. Your options are as follows</h1>
         <h1>{this.state.user.username}</h1>
-        <h1>{this.state.user.username}</h1>
-        <h1>{this.state.user.username}</h1>
-        <h1>{this.state.user.username}</h1>
+        <CharactersPage />
+        
       </div>
     );
   }
