@@ -1,14 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Link } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 import {
   Button,
   Modal,
-  Select,
   Form,
   Grid,
   Header,
-  Image,
   Message,
   Segment
 } from "semantic-ui-react";
@@ -17,8 +14,6 @@ import NewUserPage from "./NewUserPage";
 class HomePage extends Component {
   state = {
     users: [],
-    redirectToUserPage: false,
-    redirectPathname: ""
   };
 
   componentDidMount() {
@@ -37,32 +32,13 @@ class HomePage extends Component {
     }
   };
 
-  handleRedirect = userId => {
-    this.setState({
-      redirectToUserPage: true,
-      redirectPathname: `/users/${userId}`
-    });
-  };
-
   render() {
-    if (this.state.redirectToUserPage) {
-      return <Redirect to={this.state.redirectPathname} />;
-    }
     const userName = this.state.users.map(user => {
       return <h1>{user.username}</h1>;
     });
     return (
       <div>
-        <h1>{userName}</h1>
-        <div className="login-form">
-          <style>{`
-      body > div,
-      body > div > div,
-      body > div > div > div.login-form {
-        height: 100%;
-      }
-    `}</style>
-
+          <div>
           <Grid
             textAlign="center"
             style={{ height: "100%" }}
@@ -74,18 +50,9 @@ class HomePage extends Component {
               </Header>
               <Form size="large">
                 <Segment stacked>
-                  <select name="" id="">
-                    {this.state.users.map((currentUser, index) => {
-                      return (
-                        <option
-                          key={index}
-                          onClick={() => this.handleRedirect(currentUser.id)}
-                        >
-                          {currentUser.username}
-                        </option>
-                      );
-                    })}
-                  </select>
+                 
+                  <li><Link to={`/users/${userName}`}>{userName}</Link></li>
+                  
                 </Segment>
               </Form>
               <Message>
