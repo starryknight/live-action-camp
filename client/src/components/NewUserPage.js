@@ -8,12 +8,12 @@ class NewUserPage extends Component {
                 <Modal.Content>
                 <Form>
     <Form.Field>
-      <label>First Name</label>
-      <input placeholder='First Name' />
+      <label>User Name</label>
+      <input placeholder='User Name' />
     </Form.Field>
     <Form.Field>
-      <label>Last Name</label>
-      <input placeholder='Last Name' />
+      <label>Password</label>
+      <input placeholder='Password' />
     </Form.Field>
     <Form.Field>
       <Checkbox label='I agree to the Terms and Conditions' />

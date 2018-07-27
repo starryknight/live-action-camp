@@ -58,12 +58,11 @@ class HomePage extends Component {
                   {/* <li>{userName}</li> */}
                   <Dropdown placeholder='Select Friend' fluid selection options={userName} />
 
-  
                 </Segment>
               </Form>
               <Message>
                 New to us?
-                <Modal trigger={<Button>Show Modal</Button>}>
+                <Modal trigger={<Button>Sign Up</Button>}>
                   <NewUserPage />                  
                 </Modal>
               </Message>
