@@ -4,13 +4,11 @@ import axios from "axios";
 import {
   Button,
   Modal,
-  Form,
-  Dropdown,
-  Grid,
-  Header,
-  Message,
-  Segment
+ Card,
+ Image,
+ Icon
 } from "semantic-ui-react";
+import NewCharacterPage from "./NewCharacterPage";
 
 class CharactersPage extends Component {
   state = {
@@ -45,12 +43,52 @@ class CharactersPage extends Component {
     const eachCharacter = this.state.characters.map((character) => {
        
       
-    return (<li key={character.id} >{character.character_name}</li>)
+    return (
+      // <li key={character.id} >{character.character_name}</li>
+    //   <div>
+    //   <Card
+    //   image={character.avatar}
+    //   header={character.character_name}
+    //   meta={character.status}
+    //   description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
       
+    // />
+    // <Icon color='red' name='users' />
+    // <Icon color='orange' name='users' />
+    //   </div>
+
+
+<Card>
+    <Image src={character.avatar} />
+    <Card.Content>
+      <Card.Header>{character.character_name}</Card.Header>
+      <Card.Meta>
+        <span className='date'>{character.status}</span>
+      </Card.Meta>
+    </Card.Content>
+    <Card.Content extra>
+      <a>
+        <Icon name='edit' />
+        Edit
+      </a>
+      <a>
+        <Icon name='delete' />
+        delete
+      </a>
+    </Card.Content>
+  </Card>
+    )
   });
     return (
       <div>
-         {eachCharacter}
+        <div>
+{eachCharacter}
+
+        </div>
+        
+         <Modal trigger={<Button>Add New Character</Button>}>
+         <NewCharacterPage />
+         </Modal>
       </div>
     );
   }
