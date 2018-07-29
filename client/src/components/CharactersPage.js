@@ -60,19 +60,24 @@ class CharactersPage extends Component {
     return (
 
 <Card>
+  <Link to={`/api/users/${character.user_id}/characters/${character.id}`}>
     <Image src={character.avatar} />
+    
     <Card.Content>
       <Card.Header>{character.character_name}</Card.Header>
       <Card.Meta>
+
         <span className='date'>{character.status}</span>
       </Card.Meta>
+      
     </Card.Content>
+    </Link>
     <Card.Content extra>
       <a>
         <Icon name='edit' />
         Edit
       </a>
-      
+
       <a>
         <Icon name='delete' onclick={this.handleDelete} />
         delete
