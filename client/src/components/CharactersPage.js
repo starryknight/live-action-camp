@@ -9,7 +9,11 @@ import {
  Icon
 } from "semantic-ui-react";
 import NewCharacterPage from "./NewCharacterPage";
+import styled from 'styled-components'
 
+const CardCover = styled.div`
+display:flex
+`
 class CharactersPage extends Component {
   state = {
     user:{},
@@ -81,10 +85,10 @@ class CharactersPage extends Component {
   });
     return (
       <div>
-        <div>
+        <CardCover>
 {eachCharacter}
 
-        </div>
+        </CardCover>
         
          <Modal trigger={<Button>Add New Character</Button>}>
          <NewCharacterPage />
