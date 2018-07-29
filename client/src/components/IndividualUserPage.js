@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import {
-  Button,
-  Modal,
-  Form,
-  Dropdown,
-  Grid,
-  Header,
-  Message,
-  Segment
-} from "semantic-ui-react";
+// import {
+//   Button,
+//   Modal,
+//   Form,
+//   Dropdown,
+//   Grid,
+//   Header,
+//   Message,
+//   Segment
+// } from "semantic-ui-react";
 import CharactersPage from "./CharactersPage";
 
 class IndividualUserPage extends Component {

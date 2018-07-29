@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, Checkbox, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Button, Modal, Checkbox, Form } from 'semantic-ui-react';
 
 class NewUserPage extends Component {
     render() {

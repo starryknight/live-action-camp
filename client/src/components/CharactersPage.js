@@ -85,10 +85,10 @@ class CharactersPage extends Component {
   });
     return (
       <div>
-        <CardCover>
+        <Card.Group itemsPerRow={4}>
 {eachCharacter}
 
-        </CardCover>
+        </Card.Group>
         
          <Modal trigger={<Button>Add New Character</Button>}>
          <NewCharacterPage />
