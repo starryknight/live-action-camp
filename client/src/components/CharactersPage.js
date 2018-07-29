@@ -23,6 +23,16 @@ class CharactersPage extends Component {
   componentDidMount() {
     this.getCharacters();
   }
+  handleDelete = () => {
+    if (this.props.match.params) {
+      const userId = this.props.match.params.user_id;
+      const characterId = this.props.match.params.id;
+      
+      axios.delete(`/api/users/${userId}/characters/${characterId}`).then(res => {
+        this.props.history.push(`/users/${userId}`);
+      });
+    }
+  };
  
   getCharacters = async () => {
     console.log("params", this.params)
@@ -48,19 +58,6 @@ class CharactersPage extends Component {
        
       
     return (
-      // <li key={character.id} >{character.character_name}</li>
-    //   <div>
-    //   <Card
-    //   image={character.avatar}
-    //   header={character.character_name}
-    //   meta={character.status}
-    //   description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
-      
-    // />
-    // <Icon color='red' name='users' />
-    // <Icon color='orange' name='users' />
-    //   </div>
-
 
 <Card>
     <Image src={character.avatar} />
@@ -75,8 +72,9 @@ class CharactersPage extends Component {
         <Icon name='edit' />
         Edit
       </a>
+      
       <a>
-        <Icon name='delete' />
+        <Icon name='delete' onclick={this.handleDelete} />
         delete
       </a>
     </Card.Content>
@@ -89,8 +87,8 @@ class CharactersPage extends Component {
 {eachCharacter}
 
         </Card.Group>
-        
-         <Modal trigger={<Button>Add New Character</Button>}>
+        <br/>
+         <Modal trigger={<a> <Icon name='external alternate'/>Add New Character</a>}>
          <NewCharacterPage />
          </Modal>
       </div>
