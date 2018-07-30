@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Tribe.destroy_all
 User.destroy_all
+Character.destroy_all
 
 stanley = User.create(username: "stanley",  password: "stanley001")
 mwai = User.create(username: "Mwai",  password: "mwai001")

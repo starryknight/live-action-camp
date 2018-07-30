@@ -1,44 +1,52 @@
-import React, { Component } from 'react';
-import axios from 'axios'
-import { Form, Modal, Button } from 'semantic-ui-react'
+import React, { Component } from "react";
+import axios from "axios";
+import { Form, Modal, Button } from "semantic-ui-react";
 
 class EditCharacterPage extends Component {
-state = {
+  state = {
     user: {},
-    character: {}
+    character: {
+      id: "",
+      character_name: "",
+      status: "",
+      weapon: "",
+      avatar: ""
+      // tribe_id:,
+    }
   };
-  getCharacters = async () => {
-    
-    const userId = this.props.match.params
-    
+  getCharacter = async () => {
+    console.log("params", this.params)
+    const userId = this.props.match.params.user_id
+    const characterId=this.props.match.params.id
     try {
       const userRes = await axios.get(`/api/users/${userId}`);
-      const charactersRes = await axios.get(`/api/users/${userId}/characters`)
+      const characterRes = await axios.get(`/api/users/${userId}/characters/${characterId}`)
       // console.log(res.data)
       await this.setState({ 
         user: userRes.data,
-        characters: charactersRes.data
+        character: characterRes.data
       });
       
-      // return res.data;
     } catch (err) {
       console.error(err);
-      // await this.setState({ error: err.message });
-      // return err.message;
+      
     }
-  };    
-  componentDidMount() {
-    this.getCharacters();
-  }
+  };
 
-  handleSubmit = e => {
-    e.preventDefault();
+  componentDidMount() {
+    this.getCharacter();
+  }
+  handleSubmit = event => {
+    event.preventDefault();
     if (this.props.match.params) {
       const userId = this.props.match.params.userId;
       const characterId = this.props.match.params.id;
 
       axios
-        .patch(`/api/users/${userId}/characters/${characterId}/edit`, this.state)
+        .patch(
+          `/api/users/${userId}/characters/${characterId}/edit`,
+          this.state
+        )
         .then(res => {
           this.props.history.push(`/users/${userId}/characters`);
         });
@@ -54,18 +62,15 @@ state = {
     this.setState(newState);
   };
 
-
-    render() {
-        
-        return (
-            <Modal.Content>
-          <Form>
-            
+  render() {
+    return (
+      <Modal.Content>
+        <Form>
           <Form.Field>
-          <h1>Enter A New Character's Information Below</h1>
-          
-        {/* </Form.Field> */}
-    
+            <h1>Enter A New Character's Information Below</h1>
+
+            {/* </Form.Field> */}
+
             {/* <Form.Group inline>
               <label>Status</label>
               <Form.Radio
@@ -88,28 +93,31 @@ state = {
               />
             </Form.Group> */}
             {/* <Form.Field> */}
-          <label>Status</label>
-          <input placeholder={this.state.status} onChange={this.handleChange}/>
-        </Form.Field>
-            <Form.Field>
-          <label>Character Name</label>
-          <input placeholder={this.state.character_name} onChange={this.handleChange}/>
-        </Form.Field>
-        <Form.Field>
-          <label>Weapon</label>
-          <input placeholder={this.state.weapon} onChange={this.handleChange}/>
-        </Form.Field>
-        <Form.Field>
-          <label>Avatar</label>
-          <input placeholder={this.state.avatar} onChange={this.handleChange}/>
-        </Form.Field>
-        <Button type="submit" onClick={this.handleSubmit} >submit</Button>
-          </Form>
-          </Modal.Content>
-        )
-      }
-    }
-    
-
+            <label>Status</label>
+            <input
+              placeholder={this.state.character_name}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Character Name</label>
+            <input placeholder="Character Name" onChange={this.handleChange} />
+          </Form.Field>
+          <Form.Field>
+            <label>Weapon</label>
+            <input placeholder="Weapon" onChange={this.handleChange} />
+          </Form.Field>
+          <Form.Field>
+            <label>Avatar</label>
+            <input placeholder="Avatar" onChange={this.handleChange} />
+          </Form.Field>
+          <Button type="submit" onClick={this.handleSubmit}>
+            submit
+          </Button>
+        </Form>
+      </Modal.Content>
+    );
+  }
+}
 
 export default EditCharacterPage;
