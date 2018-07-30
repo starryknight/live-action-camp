@@ -6,33 +6,13 @@ class EditCharacterPage extends Component {
   state = {
     user: {},
     character: {
-        status: "",
-    character_name: "",
-    weapon: "",
+        status:"",
+    character_name:"",
+    weapon:"",
     avatar:""
     }
   };
-  componentDidMount() {
-    this.getCharacter();
-  }
-  
-  getCharacter = async () => {
-    const userId = this.props.match.params.user_id
-    const characterId=this.props.match.params.id
-    try {
-      const userRes = await axios.get(`/api/users/${userId}`);
-      const characterRes = await axios.get(`/api/users/${userId}/characters/${characterId}`)
-      // console.log(res.data)
-      await this.setState({ 
-        user: userRes.data,
-        character: characterRes.data
-      });
-      
-    } catch (err) {
-      console.error(err);
-      
-    }
-  };
+
 
   handleChange = event => {
     const inputName = event.target.name;
@@ -52,7 +32,7 @@ class EditCharacterPage extends Component {
 
       axios
         .post(
-          `/api/users/${userId}/characters/${characterId}`, this.state.character)
+          `/api/users/${userId}/characters`, this.state.character)
         .then(res => {
           this.props.history.push(`/users/${userId}/characters`);
         console.log(res)
@@ -62,39 +42,12 @@ class EditCharacterPage extends Component {
     console.log("this is from submit",characterId)
   };
 
- 
-
   render() {
     return (
       <Modal.Content>
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
             <h1>Enter A New Character's Information Below</h1>
-
-            {/* </Form.Field> */}
-
-            {/* <Form.Group inline>
-              <label>Status</label>
-              <Form.Radio
-                label='King'
-                value='King'
-                checked={value === 'sm'}
-                onChange={this.handleChange}
-              />
-              <Form.Radio
-                label='Warrior'
-                value='md'
-                checked={value === 'md'}
-                onChange={this.handleChange}
-              />
-              <Form.Radio
-                label='Peasant'
-                value='lg'
-                checked={value === 'lg'}
-                onChange={this.handleChange}
-              />
-            </Form.Group> */}
-            {/* <Form.Field> */}
             <label>Status</label>
             <input
             name="status"
