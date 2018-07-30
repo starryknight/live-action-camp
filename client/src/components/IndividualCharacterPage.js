@@ -14,7 +14,7 @@ import styled from 'styled-components'
 const CardCover = styled.div`
 display:flex
 `
-class CharactersPage extends Component {
+class IndividualCharacterPage extends Component {
   state = {
     user:{},
     characters: []
@@ -23,7 +23,16 @@ class CharactersPage extends Component {
   componentDidMount() {
     this.getCharacters();
   }
-
+  handleDelete = () => {
+    if (this.props.match.params) {
+      const userId = this.props.match.params.user_id;
+      const characterId = this.props.match.params.id;
+      
+      axios.delete(`/api/users/${userId}/characters/${characterId}`).then(res => {
+        this.props.history.push(`/users/${userId}`);
+      });
+    }
+  };
  
   getCharacters = async () => {
     console.log("params", this.params)
@@ -42,17 +51,6 @@ class CharactersPage extends Component {
       console.error(err);
       // await this.setState({ error: err.message });
       // return err.message;
-    }
-  };
-
-  handleDelete = () => {
-    if (this.props.match.params) {
-      const userId = this.props.match.params.user_id;
-      const characterId = this.props.match.params.id;
-      
-      axios.delete(`/api/users/${userId}/characters/${characterId}`).then(res => {
-        this.props.history.push(`/users/${userId}/characters`);
-      });
     }
   };
   render() {
@@ -75,13 +73,13 @@ class CharactersPage extends Component {
     </Card.Content>
     </Link>
     <Card.Content extra>
-
-      <Modal trigger={<a> <Icon name='edit'/>Edit</a>}>
-         <NewCharacterPage />
-         </Modal>
-  {/* <button onClick={this.handleDelete}>Delete</button> */}
       <a>
-        <Icon name='delete' onClick={this.handleDelete} />
+        <Icon name='edit' />
+        Edit
+      </a>
+
+      <a>
+        <Icon name='delete' onclick={this.handleDelete} />
         delete
       </a>
     </Card.Content>
@@ -103,4 +101,4 @@ class CharactersPage extends Component {
   }
 }
 
-export default CharactersPage;
+export default IndividualCharacterPage;

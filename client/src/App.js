@@ -7,6 +7,7 @@ import IndividualUserPage from './components/IndividualUserPage';
 import Navbar from './components/Navbar';
 import CharactersPage from './components/CharactersPage';
 import NewCharacterPage from './components/NewCharacterPage';
+import IndividualCharacterPage from './components/IndividualCharacterPage';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
         <Route exact path='/' component={HomePage}/>
         <Route exact path='/users/:user_id/characters' component={CharactersPage}/>
         <Route exact path='/users/:user_id/characters/new' component={NewCharacterPage}/>
+        <Route exact path='/users/:user_id/characters/:id' component={IndividualCharacterPage}/>
         <Route exact path='/users/:user_id' component={IndividualUserPage}/>
       </Switch>
       </div>
