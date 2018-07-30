@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import {
-  Button,
+  
   Modal,
  Card,
  Image,
@@ -10,6 +10,7 @@ import {
 } from "semantic-ui-react";
 import NewCharacterPage from "./NewCharacterPage";
 import styled from 'styled-components'
+import EditCharacterPage from "./EditCharacterPage";
 
 const CardCover = styled.div`
 display:flex
@@ -77,7 +78,7 @@ class CharactersPage extends Component {
     <Card.Content extra>
 
       <Modal trigger={<a> <Icon name='edit'/>Edit</a>}>
-         <NewCharacterPage />
+         <EditCharacterPage />
          </Modal>
   {/* <button onClick={this.handleDelete}>Delete</button> */}
       <a>
