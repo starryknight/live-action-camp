@@ -46,20 +46,6 @@ class CharactersPage extends Component {
     }
   };
 
-  handleDelete = () => {
-    if (this.props.match.params) {
-      const userId = this.props.match.params.user_id;
-      const characterId = this.props.match.params.character.id;
-    //  conso `/api/users/${character.user_id}/characters/${character.id
-      // const userId = 1
-      // const characterId = 1
-      console.log("user id", userId)
-      console.log("character id", characterId)
-      axios.delete(`/api/users/${userId}/characters/${characterId}`).then(res => {
-        this.props.history.push(`/users/${userId}/characters`);
-      });
-    }
-  };
 
   render() {
     console.log(this.props)
@@ -81,17 +67,7 @@ class CharactersPage extends Component {
       
     </Card.Content>
     </Link>
-    <Card.Content extra>
-
-      <Modal trigger={<a> <Icon name='edit'/>Edit</a>}>
-         <EditCharacterPage />
-         </Modal>
-  <button key={this.state.id} onClick={this.handleDelete}>Delete</button>
-      
-        {/* <Icon name='delete' onClick={this.handleDelete} />
-        delete */}
-      
-    </Card.Content>
+    
   </Card>
     )
   });

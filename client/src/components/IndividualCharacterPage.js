@@ -67,6 +67,7 @@ class IndividualCharacterPage extends Component {
       
     return (
 <CardCover>
+<br/>
 <Card>
 
     <Image src={character.avatar} />
@@ -83,7 +84,7 @@ class IndividualCharacterPage extends Component {
     <Card.Content extra>
 
       <Modal trigger={<a> <Icon name='edit'/>Edit</a>}>
-         <EditCharacterPage />
+         <EditCharacterPage {...this.props}/>
          </Modal>
   <button key={this.state.id} onClick={this.handleDelete}>Delete</button>
       

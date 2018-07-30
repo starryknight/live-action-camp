@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import CharactersPage from './components/CharactersPage';
 import NewCharacterPage from './components/NewCharacterPage';
 import IndividualCharacterPage from './components/IndividualCharacterPage';
+import EditCharacterPage from './components/EditCharacterPage';
 
 class App extends Component {
 state ={
@@ -37,6 +38,9 @@ getUsers = async () => {
     const IndividualCharacters = (props) => (
         <IndividualCharacterPage users={this.state.users}{...props} />
       )
+      const EditCharacter = (props) => (
+        <EditCharacterPage users={this.state.users}{...props} />
+      )
     
     const ShowUser = (props) => (
         <IndividualUserPage users={this.state.users}{...props} />
@@ -53,6 +57,7 @@ getUsers = async () => {
         <Route exact path='/users/:user_id/characters' component={AllCharacters}/>
         <Route exact path='/users/:user_id/characters/new' component={NewCharacterPage}/>
         <Route exact path='/users/:user_id/characters/:id' component={IndividualCharacters}/>
+        <Route exact path='/users/:user_id/characters/:id' render={EditCharacter}/>
         <Route exact path='/users/:user_id' component={ShowUser}/>
       </Switch>
       </div>

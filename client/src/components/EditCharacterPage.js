@@ -5,14 +5,7 @@ import { Form, Modal, Button } from "semantic-ui-react";
 class EditCharacterPage extends Component {
   state = {
     user: {},
-    character: {
-      id: "",
-      character_name: "",
-      status: "",
-      weapon: "",
-      avatar: ""
-      // tribe_id:,
-    }
+    character: {}
   };
   getCharacter = async () => {
     
@@ -36,6 +29,7 @@ class EditCharacterPage extends Component {
   componentDidMount() {
     this.getCharacter();
   }
+
   handleSubmit = event => {
     event.preventDefault();
     if (this.props.match.params) {
@@ -95,21 +89,21 @@ class EditCharacterPage extends Component {
             {/* <Form.Field> */}
             <label>Status</label>
             <input
-              placeholder={this.state.character_name}
+              placeholder={this.state.character.status}
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
             <label>Character Name</label>
-            <input placeholder="Character Name" onChange={this.handleChange} />
+            <input placeholder={this.state.character.character_name} onChange={this.handleChange} />
           </Form.Field>
           <Form.Field>
             <label>Weapon</label>
-            <input placeholder="Weapon" onChange={this.handleChange} />
+            <input placeholder={this.state.character.weapon} onChange={this.handleChange} />
           </Form.Field>
           <Form.Field>
             <label>Avatar</label>
-            <input placeholder="Avatar" onChange={this.handleChange} />
+            <input placeholder={this.state.character.avatar } onChange={this.handleChange} />
           </Form.Field>
           <Button type="submit" onClick={this.handleSubmit}>
             submit
