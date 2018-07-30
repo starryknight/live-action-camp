@@ -5,10 +5,18 @@ import { Form, Modal, Button } from "semantic-ui-react";
 class EditCharacterPage extends Component {
   state = {
     user: {},
-    character: {}
+    character: {
+        status: "",
+    character_name: "",
+    weapon: "",
+    avatar:""
+    }
   };
+  componentDidMount() {
+    this.getCharacter();
+  }
+  
   getCharacter = async () => {
-    
     const userId = this.props.match.params.user_id
     const characterId=this.props.match.params.id
     try {
@@ -26,40 +34,40 @@ class EditCharacterPage extends Component {
     }
   };
 
-  componentDidMount() {
-    this.getCharacter();
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-    if (this.props.match.params) {
-      const userId = this.props.match.params.userId;
-      const characterId = this.props.match.params.id;
-
-      axios
-        .patch(
-          `/api/users/${userId}/characters/${characterId}/edit`,
-          this.state
-        )
-        .then(res => {
-          this.props.history.push(`/users/${userId}/characters`);
-        });
-    }
-  };
-
   handleChange = event => {
     const inputName = event.target.name;
     const userInput = event.target.value;
 
-    const newState = { ...this.state };
+    const newState = { ...this.state.character };
     newState[inputName] = userInput;
-    this.setState(newState);
+    this.setState({character: newState});
   };
+  
+  handleSubmit = event => {
+    event.preventDefault();
+    // if (this.props.match.params) {
+      const userId = this.props.match.params.user_id;
+      const characterId = this.props.match.params.id;
+    //   const payload = {...this.state.character}
+
+      axios
+        .patch(
+          `/api/users/${userId}/characters/${characterId}`, this.state.character)
+        .then(res => {
+          this.props.history.push(`/users/${userId}/characters`);
+        console.log(res)
+        
+        });
+    // }
+    console.log("this is from submit",characterId)
+  };
+
+ 
 
   render() {
     return (
       <Modal.Content>
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
           <Form.Field>
             <h1>Enter A New Character's Information Below</h1>
 
@@ -89,23 +97,24 @@ class EditCharacterPage extends Component {
             {/* <Form.Field> */}
             <label>Status</label>
             <input
+            name="status"
               placeholder={this.state.character.status}
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
             <label>Character Name</label>
-            <input placeholder={this.state.character.character_name} onChange={this.handleChange} />
+            <input name="character_name" placeholder={this.state.character.character_name} onChange={this.handleChange} />
           </Form.Field>
           <Form.Field>
             <label>Weapon</label>
-            <input placeholder={this.state.character.weapon} onChange={this.handleChange} />
+            <input name="weapon" placeholder={this.state.character.weapon} onChange={this.handleChange} />
           </Form.Field>
           <Form.Field>
             <label>Avatar</label>
-            <input placeholder={this.state.character.avatar } onChange={this.handleChange} />
+            <input name="avatar" placeholder={this.state.character.avatar } onChange={this.handleChange} />
           </Form.Field>
-          <Button type="submit" onClick={this.handleSubmit}>
+          <Button type="submit" >
             submit
           </Button>
         </Form>

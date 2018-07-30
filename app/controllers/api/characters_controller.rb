@@ -24,7 +24,7 @@ class Api::CharactersController < ApplicationController
 
   def update
   @character = Character.find(params[:id])
-  @character.update(character_params)
+  @character.update!(character_params)
 
   render json: @character
   end
@@ -37,6 +37,6 @@ class Api::CharactersController < ApplicationController
   private
   
   def character_params
-      params.require(:character).permit(:character_name, :status, :weapon, :avatar, :user_id)
+      params.require(:character).permit(:character_name, :status, :weapon, :avatar)
   end
 end
