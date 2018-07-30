@@ -51,7 +51,7 @@ class EditCharacterPage extends Component {
     //   const payload = {...this.state.character}
 
       axios
-        .patch(
+        .post(
           `/api/users/${userId}/characters/${characterId}`, this.state.character)
         .then(res => {
           this.props.history.push(`/users/${userId}/characters`);
@@ -124,4 +124,3 @@ class EditCharacterPage extends Component {
 }
 
 export default EditCharacterPage;
-  
