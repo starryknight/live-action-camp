@@ -15,7 +15,7 @@ class EditCharacterPage extends Component {
     }
   };
   getCharacter = async () => {
-    console.log("params", this.params)
+    
     const userId = this.props.match.params.user_id
     const characterId=this.props.match.params.id
     try {
