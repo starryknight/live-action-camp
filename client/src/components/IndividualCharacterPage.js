@@ -8,8 +8,8 @@ import EditCharacterPage from "./EditCharacterPage";
 import IndividualUserPage from "./IndividualUserPage";
 
 const LetterBinder = styled.h1`
-color:rgb(114, 46, 19);
-font-family: 'Hanalei Fill', cursive;
+  color: rgb(114, 46, 19);
+  font-family: "Hanalei Fill", cursive;
 `;
 
 const CardCover = styled.h1`
@@ -99,7 +99,9 @@ class IndividualCharacterPage extends Component {
         </Card>
 
         <div>
-          <LetterBinder>Why nobody should mess with {character.character_name}</LetterBinder>
+          <LetterBinder>
+            Why nobody should mess with {character.character_name}
+          </LetterBinder>
           <Image src={character.weapon} />
         </div>
       </CardCover>
@@ -117,7 +119,7 @@ class IndividualCharacterPage extends Component {
             </a>
           }
         >
-          <NewCharacterPage params={this.props.params}{... this.props}/>
+          <NewCharacterPage params={this.props.params} {...this.props} />
         </Modal>
       </div>
     );

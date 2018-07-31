@@ -15,8 +15,8 @@ import CharactersPage from "./CharactersPage";
 import styled from "styled-components";
 
 const LetterBinder = styled.h1`
-color:rgb(114, 46, 19);
-font-family: 'Hanalei Fill', cursive;
+  color: rgb(114, 46, 19);
+  font-family: "Hanalei Fill", cursive;
 `;
 class IndividualUserPage extends Component {
   state = {
@@ -28,7 +28,7 @@ class IndividualUserPage extends Component {
   }
 
   getIndividualUser = async () => {
-    const userId = this.props.match.params.user_id
+    const userId = this.props.match.params.user_id;
 
     try {
       const res = await axios.get(`/api/users/${userId}`);
@@ -42,14 +42,14 @@ class IndividualUserPage extends Component {
     }
   };
   render() {
-    
     return (
       <div>
-        <LetterBinder>Welcome to your Page {this.state.user.username}. Your options are as follows</LetterBinder>
+        <LetterBinder>
+          Welcome to your Page {this.state.user.username}. Your options are as
+          follows
+        </LetterBinder>
         <LetterBinder>{this.state.user.username}</LetterBinder>
-        <CharactersPage params={this.props.params}{... this.props} />
-
-        
+        <CharactersPage params={this.props.params} {...this.props} />
       </div>
     );
   }

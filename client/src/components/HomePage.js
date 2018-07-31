@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import axios from "axios";
 import {
   Button,
@@ -12,27 +12,27 @@ import {
   Segment
 } from "semantic-ui-react";
 import NewUserPage from "./NewUserPage";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Banner = styled.h1`
-font-family: 'Hanalei Fill', cursive;
-font-size: 5rem;
-color:rgb(66, 244, 140);
-text-shadow:5px 5px 5px olive;
+  font-family: "Hanalei Fill", cursive;
+  font-size: 5rem;
+  color: rgb(66, 244, 140);
+  text-shadow: 5px 5px 5px olive;
 `;
 const HomeCover = styled.div`
-height:100vh;
-background:url("https://source.unsplash.com/MwYBzsaSAGQ");
-`
+  height: 100vh;
+  background: url("https://source.unsplash.com/MwYBzsaSAGQ");
+`;
 const ListWrapper = styled.li`
-list-style-type: none;
-text-decoration:none;
-color:black;
-font-size:15px;
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
 `;
 class HomePage extends Component {
   state = {
-    users: [],
+    users: []
   };
 
   componentDidMount() {
@@ -50,17 +50,20 @@ class HomePage extends Component {
       return err.message;
     }
   };
-  
 
   render() {
     const userName = this.state.users.map(user => {
-        const userId = `/users/${user.id}`
-        
-      return (<ListWrapper key={user.id} ><Link to={userId}>{user.username}</Link></ListWrapper>)
+      const userId = `/users/${user.id}`;
+
+      return (
+        <ListWrapper key={user.id}>
+          <Link to={userId}>{user.username}</Link>
+        </ListWrapper>
+      );
     });
     return (
       <HomeCover>
-          <div>
+        <div>
           <Grid
             textAlign="center"
             style={{ height: "100%" }}
@@ -72,15 +75,18 @@ class HomePage extends Component {
               </Banner>
               <Form size="large">
                 <Segment stacked>
-                 
-                  <Dropdown placeholder='Select Friend' fluid selection options={userName} />
-
+                  <Dropdown
+                    placeholder="Select Friend"
+                    fluid
+                    selection
+                    options={userName}
+                  />
                 </Segment>
               </Form>
               <Message>
                 New to us?
                 <Modal trigger={<Button>Sign Up</Button>}>
-                  <NewUserPage />                  
+                  <NewUserPage />
                 </Modal>
               </Message>
             </Grid.Column>
@@ -92,4 +98,3 @@ class HomePage extends Component {
 }
 
 export default HomePage;
-

@@ -6,31 +6,31 @@ class EditCharacterPage extends Component {
   state = {
     user: {},
     character: {
-        status: "",
-    character_name: "",
-    weapon: "",
-    avatar:""
+      status: "",
+      character_name: "",
+      weapon: "",
+      avatar: ""
     }
   };
   componentDidMount() {
     this.getCharacter();
   }
-  
+
   getCharacter = async () => {
-    const userId = this.props.match.params.user_id
-    const characterId=this.props.match.params.id
+    const userId = this.props.match.params.user_id;
+    const characterId = this.props.match.params.id;
     try {
       const userRes = await axios.get(`/api/users/${userId}`);
-      const characterRes = await axios.get(`/api/users/${userId}/characters/${characterId}`)
+      const characterRes = await axios.get(
+        `/api/users/${userId}/characters/${characterId}`
+      );
       // console.log(res.data)
-      await this.setState({ 
+      await this.setState({
         user: userRes.data,
         character: characterRes.data
       });
-      
     } catch (err) {
       console.error(err);
-      
     }
   };
 
@@ -40,29 +40,28 @@ class EditCharacterPage extends Component {
 
     const newState = { ...this.state.character };
     newState[inputName] = userInput;
-    this.setState({character: newState});
+    this.setState({ character: newState });
   };
-  
+
   handleSubmit = event => {
     event.preventDefault();
     // if (this.props.match.params) {
-      const userId = this.props.match.params.user_id;
-      const characterId = this.props.match.params.id;
+    const userId = this.props.match.params.user_id;
+    const characterId = this.props.match.params.id;
     //   const payload = {...this.state.character}
 
-      axios
-        .patch(
-          `/api/users/${userId}/characters/${characterId}`, this.state.character)
-        .then(res => {
-          this.props.history.push(`/users/${userId}/characters`);
-        console.log(res)
-        
-        });
+    axios
+      .patch(
+        `/api/users/${userId}/characters/${characterId}`,
+        this.state.character
+      )
+      .then(res => {
+        this.props.history.push(`/users/${userId}/characters`);
+        console.log(res);
+      });
     // }
-    console.log("this is from submit",characterId)
+    console.log("this is from submit", characterId);
   };
-
- 
 
   render() {
     return (
@@ -73,26 +72,36 @@ class EditCharacterPage extends Component {
 
             <label>Status</label>
             <input
-            name="status"
+              name="status"
               placeholder={this.state.character.status}
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
             <label>Character Name</label>
-            <input name="character_name" placeholder={this.state.character.character_name} onChange={this.handleChange} />
+            <input
+              name="character_name"
+              placeholder={this.state.character.character_name}
+              onChange={this.handleChange}
+            />
           </Form.Field>
           <Form.Field>
             <label>Weapon</label>
-            <input name="weapon" placeholder={this.state.character.weapon} onChange={this.handleChange} />
+            <input
+              name="weapon"
+              placeholder={this.state.character.weapon}
+              onChange={this.handleChange}
+            />
           </Form.Field>
           <Form.Field>
             <label>Avatar</label>
-            <input name="avatar" placeholder={this.state.character.avatar } onChange={this.handleChange} />
+            <input
+              name="avatar"
+              placeholder={this.state.character.avatar}
+              onChange={this.handleChange}
+            />
           </Form.Field>
-          <Button type="submit" >
-            submit
-          </Button>
+          <Button type="submit">submit</Button>
         </Form>
       </Modal.Content>
     );
