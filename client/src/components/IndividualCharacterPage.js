@@ -88,7 +88,7 @@ class IndividualCharacterPage extends Component {
          </Modal>
   <button key={this.state.id} onClick={this.handleDelete}>Delete</button>
       
-        {/* <Icon name='delete' onClick={this.handleDelete} />
+        {/* <Icon name='delete' key={this.state.id} onClick={this.handleDelete} />
         delete */}
       
     </Card.Content>

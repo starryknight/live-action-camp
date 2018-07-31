@@ -12,6 +12,14 @@ import IndividualCharacterPage from './components/IndividualCharacterPage';
 import EditCharacterPage from './components/EditCharacterPage';
 import ReactWeather from 'react-open-weather';
 import styled from 'styled-components';
+import {
+  Sidebar,
+  Modal,
+ Card,
+ Image,
+ Menu,
+ Icon
+} from "semantic-ui-react";
 
 
 class App extends Component {
@@ -57,12 +65,24 @@ getUsers = async () => {
       <Router>
         <div>
         <Navbar />
-        <ReactWeather
+
+        {/* <Sidebar   icon='labeled' inverted vertical visible width='thin'>
+
+      <ReactWeather
     forecast="today"
     apikey="d1f97e829f4847ad8f613810183107"
     type="city"
     city="Atlanta"/>
-    
+    </Sidebar> */}
+
+        
+        {/* <ReactWeather
+    forecast="today"
+    apikey="d1f97e829f4847ad8f613810183107"
+    type="city"
+    city="Atlanta"/> */}
+     
+
       <Switch>
         <Route exact path='/' component={HomePage}/>
         <Route exact path='/users/:user_id' render={ShowUser}/>
