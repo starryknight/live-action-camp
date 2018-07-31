@@ -39,6 +39,6 @@ class Api::CharactersController < ApplicationController
   private
   
   def character_params
-      params.require(:character).permit(:character_name, :status, :weapon, :avatar, :tribe_id)
+      params.require(:character).permit(:character_name, :status, :weapon, :avatar, :tribe_id).merge(user_id: params[:user_id])
   end
 end

@@ -80,7 +80,7 @@ class CharactersPage extends Component {
         <br/>
          <Modal trigger={<a> <Icon name='external alternate'/>Add New Character</a>}>
         {/* <Link to={`/users/${this.props.match.params.user_id}/characters`}>Click here To Create a New Character</Link> */}
-        <NewCharacterPage />
+        <NewCharacterPage  params={this.props.params}{... this.props} />
          </Modal>
       </div>
     );

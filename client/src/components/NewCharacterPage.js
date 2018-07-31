@@ -28,12 +28,12 @@ class NewCharacterPage extends Component {
     event.preventDefault();
     
       const userId = this.props.match.params.user_id;
-    //   const payload = {...this.state.character}
+      const payload = {...this.state.character}
     console.log("from newcharacter", this.props )
 
       axios
         .post(
-          `/api/users/${userId}/characters`, this.state.character)
+          `/api/users/userId/characters`, payload)
         .then(res => {
           this.props.history.push(`/users/${userId}/characters`);
         console.log(res)    

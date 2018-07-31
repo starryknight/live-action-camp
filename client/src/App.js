@@ -7,7 +7,7 @@ import HomePage from './components/HomePage';
 import IndividualUserPage from './components/IndividualUserPage';
 import Navbar from './components/Navbar';
 import CharactersPage from './components/CharactersPage';
-// import NewCharacterPage from './components/NewCharacterPage';
+import NewCharacterPage from './components/NewCharacterPage';
 import IndividualCharacterPage from './components/IndividualCharacterPage';
 import EditCharacterPage from './components/EditCharacterPage';
 import ReactWeather from 'react-open-weather';
@@ -57,9 +57,9 @@ getUsers = async () => {
         <IndividualUserPage users={this.state.users}{...props} />
       )
     
-      // const NewCharacter = (props) => (
-      //   <NewCharacterPage users={this.state.users}{...props} />
-      // )
+      const NewCharacter = (props) => (
+        <NewCharacterPage users={this.state.users}{...props} />
+      )
   
     return (
       <Router>
@@ -88,7 +88,7 @@ getUsers = async () => {
         <Route exact path='/users/:user_id' render={ShowUser}/>
         <Route exact path='/users/:user_id/characters' render={AllCharacters}/>
         
-        {/* <Route exact path='/users/:user_id/characters/new' component={NewCharacter}/> */}
+        <Route exact path='/users/:user_id/characters/new' component={NewCharacter}/>
         <Route exact path='/users/:user_id/characters/:id' component={IndividualCharacters}/>
         <Route exact path='/users/:user_id/characters/:id' render={EditCharacter}/>
         
