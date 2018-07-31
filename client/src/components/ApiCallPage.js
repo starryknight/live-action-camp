@@ -49,11 +49,12 @@ import { Button } from '../../node_modules/semantic-ui-react';
 
 class ApiCallPage extends Component {
    state = {
-            weather:{}
+            weather:{},
+           list:[]
             };
     
     handleChange = (event) => {
-            this.setState({ term: event.target.value });
+            this.setState({ city: event.target.value });
           }
         
         handleSubmit = async (event) => {
@@ -68,7 +69,7 @@ class ApiCallPage extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-           <input type=""text name="city" placeholder="city?" onChange={this.handleChange} />
+           <input type="text" name="city" placeholder="city?" onChange={this.handleChange} />
           <Button type="submit">See Weather Forecast</Button>
         </form>
         {/* <h1>{this.state.temp}</h1> */}

@@ -10,7 +10,7 @@ class NewCharacterPage extends Component {
     character_name:"",
     weapon:"",
     avatar:"",
-    tribe_id:0
+    tribe_id:"5"
     }
   };
 
@@ -29,22 +29,19 @@ class NewCharacterPage extends Component {
     
       const userId = this.props.match.params.user_id;
     //   const payload = {...this.state.character}
+    console.log("from newcharacter", this.props )
 
       axios
         .post(
           `/api/users/${userId}/characters`, this.state.character)
         .then(res => {
           this.props.history.push(`/users/${userId}/characters`);
-        console.log(res)
-        
+        console.log(res)    
         });
-   
-   
   };
 
   render() {
-    return (
-      
+    return (    
 <ModalContent>
         {/* form starts here */}
         <Form onSubmit={this.handleSubmit}>

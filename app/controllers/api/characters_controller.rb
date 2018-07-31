@@ -12,9 +12,11 @@ class Api::CharactersController < ApplicationController
   end
 
   def create
-  @tribe = Tribe.find(params[:tribe_id])
-  @character = @tribe.characters.create(character_params) 
-  render json: @character
+    @tribe = Tribe.find(params[:tribe_id])
+#   @character = @tribe.characters.create(character_params) 
+    @character = Character.create!(character_params)
+
+    render json: @character
   end
   
   def show
