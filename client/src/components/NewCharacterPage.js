@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Form, Modal, Button } from "semantic-ui-react";
+import { Form, Modal, Button, ModalContent } from "semantic-ui-react";
 
 class NewCharacterPage extends Component {
   state = {
@@ -10,7 +10,7 @@ class NewCharacterPage extends Component {
     character_name:"",
     weapon:"",
     avatar:"",
-    tribe_id:5
+    tribe_id:0
     }
   };
 
@@ -44,8 +44,8 @@ class NewCharacterPage extends Component {
 
   render() {
     return (
-      <div>
-
+      
+<ModalContent>
         {/* form starts here */}
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
@@ -74,7 +74,7 @@ class NewCharacterPage extends Component {
           </Button>
         </Form>
         {/* form ends here */}
-      </div>
+        </ModalContent>
     );
   }
 }

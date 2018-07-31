@@ -46,6 +46,15 @@ In my second version I would love to be able to make my activities page create, 
 * PostgresQL
 * Postman 
 * Node.js
+### Third Party API
+* APIXU.com
+
 ## References
 
 https://dashboard.heroku.com/
+https://www.npmjs.com/package/react-open-weather
+
+
+
+
+

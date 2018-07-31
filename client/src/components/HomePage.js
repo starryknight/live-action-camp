@@ -12,7 +12,12 @@ import {
   Segment
 } from "semantic-ui-react";
 import NewUserPage from "./NewUserPage";
+import styled from 'styled-components';
 
+const HomeCover = styled.div`
+height:100vh;
+background:url("https://source.unsplash.com/MwYBzsaSAGQ");
+`
 class HomePage extends Component {
   state = {
     users: [],
@@ -33,6 +38,7 @@ class HomePage extends Component {
       return err.message;
     }
   };
+  
 
   render() {
     const userName = this.state.users.map(user => {
@@ -41,7 +47,7 @@ class HomePage extends Component {
       return (<li key={user.id} ><Link to={userId}>{user.username}</Link></li>)
     });
     return (
-      <div>
+      <HomeCover>
           <div>
           <Grid
             textAlign="center"
@@ -68,7 +74,7 @@ class HomePage extends Component {
             </Grid.Column>
           </Grid>
         </div>
-      </div>
+      </HomeCover>
     );
   }
 }

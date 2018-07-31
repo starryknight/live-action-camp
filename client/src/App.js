@@ -10,6 +10,9 @@ import CharactersPage from './components/CharactersPage';
 import NewCharacterPage from './components/NewCharacterPage';
 import IndividualCharacterPage from './components/IndividualCharacterPage';
 import EditCharacterPage from './components/EditCharacterPage';
+import ReactWeather from 'react-open-weather';
+import styled from 'styled-components';
+
 
 class App extends Component {
 state ={
@@ -54,6 +57,12 @@ getUsers = async () => {
       <Router>
         <div>
         <Navbar />
+        <ReactWeather
+    forecast="today"
+    apikey="d1f97e829f4847ad8f613810183107"
+    type="city"
+    city="Atlanta"/>
+    
       <Switch>
         <Route exact path='/' component={HomePage}/>
         <Route exact path='/users/:user_id' render={ShowUser}/>

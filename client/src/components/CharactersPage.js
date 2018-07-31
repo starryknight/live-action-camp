@@ -78,9 +78,10 @@ class CharactersPage extends Component {
 
         </Card.Group>
         <br/>
-         {/* <Modal trigger={<a> <Icon name='external alternate'/>Add New Character</a>}> */}
-        <Link to={`/users/${this.props.match.params.user_id}/characters/new`}>Click here To Create a New Character</Link>
-         {/* </Modal> */}
+         <Modal trigger={<a> <Icon name='external alternate'/>Add New Character</a>}>
+        {/* <Link to={`/users/${this.props.match.params.user_id}/characters`}>Click here To Create a New Character</Link> */}
+        <NewCharacterPage />
+         </Modal>
       </div>
     );
   }

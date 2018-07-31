@@ -13,7 +13,7 @@ class Api::CharactersController < ApplicationController
 
   def create
   @tribe = Tribe.find(params[:tribe_id])
-  @character = @tribe.characters.create(character_params)
+  @character = @tribe.characters.create(character_params) 
   render json: @character
   end
   
@@ -37,6 +37,6 @@ class Api::CharactersController < ApplicationController
   private
   
   def character_params
-      params.require(:character).permit(:character_name, :status, :weapon, :avatar, :tribe_id, :user_id)
+      params.require(:character).permit(:character_name, :status, :weapon, :avatar, :tribe_id)
   end
 end
