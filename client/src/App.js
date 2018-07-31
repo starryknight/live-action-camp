@@ -32,7 +32,7 @@ getUsers = async () => {
 }
   render() {
       const AllCharacters = (props) => (
-        <CharactersPage users={this.state.users}{...props}  character={this.state.users.characters}{...props}/>
+        <CharactersPage users={this.state.users} {...props}  character={this.state.users.characters}/>
       )
     
     const IndividualCharacters = (props) => (
@@ -46,7 +46,9 @@ getUsers = async () => {
         <IndividualUserPage users={this.state.users}{...props} />
       )
     
-  
+      const NewCharacter = (props) => (
+        <NewCharacterPage users={this.state.users}{...props} />
+      )
   
     return (
       <Router>
@@ -54,11 +56,13 @@ getUsers = async () => {
         <Navbar />
       <Switch>
         <Route exact path='/' component={HomePage}/>
-        <Route exact path='/users/:user_id/characters' component={AllCharacters}/>
-        <Route exact path='/users/:user_id/characters/new' component={NewCharacterPage}/>
+        <Route exact path='/users/:user_id' render={ShowUser}/>
+        <Route exact path='/users/:user_id/characters' render={AllCharacters}/>
+        
+        <Route exact path='/users/:user_id/characters/new' render={NewCharacter}/>
         <Route exact path='/users/:user_id/characters/:id' component={IndividualCharacters}/>
         <Route exact path='/users/:user_id/characters/:id' render={EditCharacter}/>
-        <Route exact path='/users/:user_id' component={ShowUser}/>
+        
       </Switch>
       </div>
       </Router>

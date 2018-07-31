@@ -37,6 +37,6 @@ class Api::CharactersController < ApplicationController
   private
   
   def character_params
-      params.require(:character).permit(:character_name, :status, :weapon, :avatar)
+      params.require(:character).permit(:character_name, :status, :weapon, :avatar, :tribe_id, :user_id)
   end
 end

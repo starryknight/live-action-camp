@@ -37,6 +37,7 @@ class IndividualUserPage extends Component {
     }
   };
   render() {
+    
     return (
       <div>
         <h1>Welcome to your Page {this.state.user.username}. Your options are as follows</h1>

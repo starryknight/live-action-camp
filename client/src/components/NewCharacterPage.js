@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Form, Modal, Button } from "semantic-ui-react";
 
-class EditCharacterPage extends Component {
+class NewCharacterPage extends Component {
   state = {
     user: {},
     character: {
         status:"",
     character_name:"",
     weapon:"",
-    avatar:""
+    avatar:"",
+    tribe_id:5
     }
   };
 
@@ -25,9 +26,8 @@ class EditCharacterPage extends Component {
   
   handleSubmit = event => {
     event.preventDefault();
-    // if (this.props.match.params) {
+    
       const userId = this.props.match.params.user_id;
-      const characterId = this.props.match.params.id;
     //   const payload = {...this.state.character}
 
       axios
@@ -38,13 +38,15 @@ class EditCharacterPage extends Component {
         console.log(res)
         
         });
-    // }
-    console.log("this is from submit",characterId)
+   
+   
   };
 
   render() {
     return (
-      <Modal.Content>
+      <div>
+
+        {/* form starts here */}
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
             <h1>Enter A New Character's Information Below</h1>
@@ -71,9 +73,10 @@ class EditCharacterPage extends Component {
             submit
           </Button>
         </Form>
-      </Modal.Content>
+        {/* form ends here */}
+      </div>
     );
   }
 }
 
-export default EditCharacterPage;
+export default NewCharacterPage;
