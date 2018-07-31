@@ -7,11 +7,17 @@ import styled from "styled-components";
 import EditCharacterPage from "./EditCharacterPage";
 import IndividualUserPage from "./IndividualUserPage";
 
-const CardCover = styled.div`
+const LetterBinder = styled.h1`
+color:rgb(114, 46, 19);
+font-family: 'Hanalei Fill', cursive;
+`;
+
+const CardCover = styled.h1`
   display: flex;
   justify-content: space-around;
   margin: auto;
 `;
+
 class IndividualCharacterPage extends Component {
   state = {
     user: {},
@@ -93,7 +99,7 @@ class IndividualCharacterPage extends Component {
         </Card>
 
         <div>
-          <h1>Why nobody should mess with {character.character_name}</h1>
+          <LetterBinder>Why nobody should mess with {character.character_name}</LetterBinder>
           <Image src={character.weapon} />
         </div>
       </CardCover>

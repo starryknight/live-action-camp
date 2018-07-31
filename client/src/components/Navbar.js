@@ -43,14 +43,10 @@ state = {
           `/api/users/${userId}/characters`, this.state.character)
         .then(res => {
           this.props.history.push(`/users/${userId}/characters`);
-        console.log(res)
-        
+        console.log(res)   
         });
    
-   
   };
-
-
     render() {
         return (
             <div>

@@ -12,7 +12,12 @@ import axios from "axios";
 //   Segment
 // } from "semantic-ui-react";
 import CharactersPage from "./CharactersPage";
+import styled from "styled-components";
 
+const LetterBinder = styled.h1`
+color:rgb(114, 46, 19);
+font-family: 'Hanalei Fill', cursive;
+`;
 class IndividualUserPage extends Component {
   state = {
     user: {}
@@ -40,8 +45,8 @@ class IndividualUserPage extends Component {
     
     return (
       <div>
-        <h1>Welcome to your Page {this.state.user.username}. Your options are as follows</h1>
-        <h1>{this.state.user.username}</h1>
+        <LetterBinder>Welcome to your Page {this.state.user.username}. Your options are as follows</LetterBinder>
+        <LetterBinder>{this.state.user.username}</LetterBinder>
         <CharactersPage params={this.props.params}{... this.props} />
 
         

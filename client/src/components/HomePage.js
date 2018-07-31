@@ -14,10 +14,22 @@ import {
 import NewUserPage from "./NewUserPage";
 import styled from 'styled-components';
 
+const Banner = styled.h1`
+font-family: 'Hanalei Fill', cursive;
+font-size: 5rem;
+color:rgb(66, 244, 140);
+text-shadow:5px 5px 5px olive;
+`;
 const HomeCover = styled.div`
 height:100vh;
 background:url("https://source.unsplash.com/MwYBzsaSAGQ");
 `
+const ListWrapper = styled.li`
+list-style-type: none;
+text-decoration:none;
+color:black;
+font-size:15px;
+`;
 class HomePage extends Component {
   state = {
     users: [],
@@ -44,7 +56,7 @@ class HomePage extends Component {
     const userName = this.state.users.map(user => {
         const userId = `/users/${user.id}`
         
-      return (<li key={user.id} ><Link to={userId}>{user.username}</Link></li>)
+      return (<ListWrapper key={user.id} ><Link to={userId}>{user.username}</Link></ListWrapper>)
     });
     return (
       <HomeCover>
@@ -55,9 +67,9 @@ class HomePage extends Component {
             verticalAlign="middle"
           >
             <Grid.Column style={{ maxWidth: 450 }}>
-              <Header as="h2" color="teal" textAlign="center">
+              <Banner as="h2" color="teal" textAlign="center">
                 Live Action Camp
-              </Header>
+              </Banner>
               <Form size="large">
                 <Segment stacked>
                  

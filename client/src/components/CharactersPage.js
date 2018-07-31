@@ -21,6 +21,7 @@ class CharactersPage extends Component {
     characters: []
   };
 
+
   componentDidMount() {
     this.getCharacters();
   }
