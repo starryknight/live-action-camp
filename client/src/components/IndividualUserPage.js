@@ -48,7 +48,7 @@ class IndividualUserPage extends Component {
           Welcome to your Page {this.state.user.username}. Your options are as
           follows
         </LetterBinder>
-        <LetterBinder>{this.state.user.username}</LetterBinder>
+        <p>Welcome to Live Action Camp {this.state.user.username}. This is your premier destination for live action role playing. Please see your registered roles for upcoming camps below. Feel free to add more roles or edit existing ones </p>
         <CharactersPage params={this.props.params} {...this.props} />
       </div>
     );

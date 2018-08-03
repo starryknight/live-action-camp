@@ -70,6 +70,30 @@ class EditCharacterPage extends Component {
           <Form.Field>
             <h1>Enter A New Character's Information Below</h1>
 
+            {/* </Form.Field> */}
+
+            {/* <Form.Group inline>
+              <label>Status</label>
+              <Form.Radio
+                label='King'
+                value='King'
+                checked={value === 'sm'}
+                onChange={this.handleChange}
+              />
+              <Form.Radio
+                label='Warrior'
+                value='md'
+                checked={value === 'md'}
+                onChange={this.handleChange}
+              />
+              <Form.Radio
+                label='Peasant'
+                value='lg'
+                checked={value === 'lg'}
+                onChange={this.handleChange}
+              />
+            </Form.Group> */}
+            {/* <Form.Field> */}
             <label>Status</label>
             <input
               name="status"

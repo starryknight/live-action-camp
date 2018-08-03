@@ -1,5 +1,16 @@
 import React, { Component } from "react";
-import { Button } from "../../node_modules/semantic-ui-react";
+import { Button, Modal } from "../../node_modules/semantic-ui-react";
+import styled from "styled-components";
+
+const WeatherCover = styled.div`
+ 
+`;
+
+const WeatherText = styled.h1`
+  border-radius:2px;
+  background: cyan;
+  margin:2px;
+`;
 
 class ApiCallPage extends Component {
   state = {
@@ -26,22 +37,19 @@ class ApiCallPage extends Component {
   };
 
   render() {
-    const TenDayWeather = this.state.weather.list[10];
-
-    // if (){
-    //     return "loading"
-    // }
+    const TenDayWeather = this.state.weather.list[10];  
 
     return (
-      <div>
+      <Modal trigger={<Button>Ten Day Weather Forecast</Button>}>
+      <Modal.Content>
         {!TenDayWeather ? (
           "loading"
         ) : (
-          <div>
-            <h1>Expected Rain: {TenDayWeather.rain["3h"]} inches</h1>
-            <h1>Expected Clouds: {TenDayWeather.clouds["all"]}%</h1>
-            <h1>Expected Winds: {TenDayWeather.wind["speed"]} mph</h1>
-          </div>
+          <WeatherCover>
+            <WeatherText>Expected Rain: {TenDayWeather.rain["3h"]} inches</WeatherText>
+            <WeatherText>Expected Clouds: {TenDayWeather.clouds["all"]}%</WeatherText>
+            <WeatherText>Expected Winds: {TenDayWeather.wind["speed"]} mph</WeatherText>
+          </WeatherCover>
         )}
 
         <form onSubmit={this.handleSubmit}>
@@ -54,7 +62,8 @@ class ApiCallPage extends Component {
           <Button type="submit">Ten Day Weather Forecast</Button>
         </form>
         <h1 />
-      </div>
+      </Modal.Content>
+      </Modal>
     );
   }
 }

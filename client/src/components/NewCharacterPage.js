@@ -10,7 +10,8 @@ class NewCharacterPage extends Component {
       character_name: "",
       weapon: "",
       avatar: "",
-      tribe_id: "5"
+      tribe_id: "17",
+      user_id:"17"
     }
   };
 

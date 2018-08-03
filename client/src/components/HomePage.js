@@ -76,7 +76,7 @@ class HomePage extends Component {
               <Form size="large">
                 <Segment stacked>
                   <Dropdown
-                    placeholder="Select Friend"
+                    placeholder="Select User Name"
                     fluid
                     selection
                     options={userName}

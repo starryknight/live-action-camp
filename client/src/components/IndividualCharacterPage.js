@@ -7,9 +7,8 @@ import styled from "styled-components";
 import EditCharacterPage from "./EditCharacterPage";
 import IndividualUserPage from "./IndividualUserPage";
 
-const LetterBinder = styled.h1`
-  color: rgb(114, 46, 19);
-  font-family: "Hanalei Fill", cursive;
+const CharacterBinder = styled.h1`
+  Padding:5%;
 `;
 
 const CardCover = styled.h1`
@@ -89,19 +88,17 @@ class IndividualCharacterPage extends Component {
             >
               <EditCharacterPage {...this.props} />
             </Modal>
-            <button key={this.state.id} onClick={this.handleDelete}>
+            {/* <button key={this.state.id} onClick={this.handleDelete}>
               Delete
-            </button>
+            </button> */}
 
-            {/* <Icon name='delete' key={this.state.id} onClick={this.handleDelete} />
-        delete */}
+            <Icon name='delete' key={this.state.id} onClick={this.handleDelete} />
+        delete
           </Card.Content>
         </Card>
 
         <div>
-          <LetterBinder>
-            Why nobody should mess with {character.character_name}
-          </LetterBinder>
+          <h1>Why nobody should mess with {character.character_name}</h1>
           <Image src={character.weapon} />
         </div>
       </CardCover>

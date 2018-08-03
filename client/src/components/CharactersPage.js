@@ -9,6 +9,9 @@ import EditCharacterPage from "./EditCharacterPage";
 const CardCover = styled.div`
   display: flex;
 `;
+const CharacterBinder = styled.div`
+  Padding:5%;
+`;
 class CharactersPage extends Component {
   state = {
     user: {},
@@ -58,7 +61,7 @@ class CharactersPage extends Component {
       );
     });
     return (
-      <div>
+      <CharacterBinder>
         <Card.Group itemsPerRow={4}>{eachCharacter}</Card.Group>
         <br />
         <Modal
@@ -72,7 +75,7 @@ class CharactersPage extends Component {
           {/* <Link to={`/users/${this.props.match.params.user_id}/characters`}>Click here To Create a New Character</Link> */}
           <NewCharacterPage params={this.props.params} {...this.props} />
         </Modal>
-      </div>
+      </CharacterBinder>
     );
   }
 }
