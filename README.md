@@ -9,6 +9,7 @@ A larp enthusiast signs into a page and is immediately able to see the roles tha
 
 ## Snapshot
 ![screen shot 2018-08-03 at 12 30 08 am](https://user-images.githubusercontent.com/35582310/43624337-b0b04812-96b4-11e8-934d-ff6ca3b1b15d.png)
+![screen shot 2018-08-03 at 12 50 06 am](https://user-images.githubusercontent.com/35582310/43624781-7a2830ea-96b7-11e8-9cb0-c2464289faff.png)
 
 ## Heroku Site Link
 The live website for the project is available via the following link:-
@@ -25,7 +26,7 @@ The ERD for the project is available via the following link:-
 
 ![live-action-wireframe](https://user-images.githubusercontent.com/35582310/43296335-c1c14332-9118-11e8-9814-30d943a875e7.jpg)
 
-![screen shot 2018-08-03 at 12 50 06 am](https://user-images.githubusercontent.com/35582310/43624781-7a2830ea-96b7-11e8-9cb0-c2464289faff.png)
+
 
 ## Trello
 
