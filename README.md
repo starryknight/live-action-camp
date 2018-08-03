@@ -43,7 +43,7 @@ https://openweathermap.org/forecast5
 ![screen shot 2018-08-03 at 12 50 19 am](https://user-images.githubusercontent.com/35582310/43624770-64e0f262-96b7-11e8-9b96-d05a08e906a7.png)
 
 ## Version 2
-In my second version I would love to be able to make my activities page create, read update and delete. An actual log in would be an important addition. 
+In my second version I would love to be able to use devise to set up user authorization and cancancan for authentication. I would also love to show tribe attributes such as their insignia and colours as part of each character.
 
 ## Technologies
 ### Front-End
