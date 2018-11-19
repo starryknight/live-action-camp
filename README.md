@@ -14,7 +14,7 @@ A larp enthusiast signs into a page and is immediately able to see the roles tha
 ## Heroku Site Link
 The live website for the project is available via the following link:-
 ```
-https://dashboard.heroku.com/apps/live-action-camp
+https://live-action-camp.herokuapp.com/
 ```
 ## wireframe
 The wireframe for the project is available via the following link:-
